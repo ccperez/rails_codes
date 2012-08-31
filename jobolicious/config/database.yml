@@ -1,0 +1,10 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: jobolicious_devt
+  pool: 5
+  username: jobolicious_usr
+  password: jobolicious_pwd
+  socket: /var/run/mysqld/mysqld.sock
+

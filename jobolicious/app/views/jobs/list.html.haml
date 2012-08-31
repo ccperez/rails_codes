@@ -1,0 +1,12 @@
+.job.list
+  %h2 Job List
+  %div= pluralize(@jobs.size, 'job')
+  %table.listing{:summary => "Job List"}
+    - @jobs.each do |job|
+      %tr
+        %td= job.location
+        %td= job.title
+        %td= job.company
+        %td= job.description
+        %td= job.url
+

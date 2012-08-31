@@ -1,0 +1,15 @@
+<div id="side-bar">
+  <div id="employers">
+    <h3>Hey Employers!</h3>
+    <p>Looking to find a rockstar web developer?</p>
+    <p>
+      This board attracts <span class="rockstar">rockstar</span> web developers from all around the globe.
+    </p>
+    <p>
+      <span class="price">FREE</span> for 30 days. That's Jobolicous ;)
+    </p>
+  </div>
+  <% image_link = image_tag('post_a_job.png', :alt => 'Find a rockstar!') %>
+  <%= link_to(image_link, "/jobs/new") %>
+</div>
+

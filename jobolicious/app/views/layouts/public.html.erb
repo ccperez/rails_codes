@@ -1,0 +1,15 @@
+<%= render("layouts/header") %>
+  <%= render("layouts/sidebar") %>
+
+  <div id="main">
+    <% if !flash[:notice].blank? %>
+      <div class="notice">
+        <b><%= flash[:notice] %></b>
+      </div>
+      <br />
+    <% end %>
+    <%= yield %>
+  </div>
+
+<%= render("layouts/footer") %>
+

@@ -1,0 +1,43 @@
+class JobsController < ApplicationController
+
+  def find_jobs
+    select = "SELECT
+               jobs.id,
+               jobs.location,
+               jobs.title,
+               jobs.company,
+               jobs.description,
+               jobs.url "
+      from = " FROM jobs"
+     where = " WHERE id > 0
+                 AND DATE_ADD(created_at, INTERVAL 30 DAY ) > NOW() "
+     order = " ORDER BY id DESC"
+
+    if params[:search]
+      search = params[:search]
+
+      select = "#{select}, match(title,location,description)
+                  against ('#{search}' IN BOOLEAN MODE)
+                  as relevance "
+       where = "#{where} AND match(title,location,description) against
+                  ('#{search}' IN BOOLEAN MODE) "
+       order = " ORDER BY relevance DESC"
+    end
+
+    if params[:category]
+      category = params[:category]
+
+       from = "#{from}, categories_jobs"
+      where = "#{where}
+               AND jobs.id = categories_jobs.job_id
+					     AND categories_jobs.category_id = '#{category}'"
+    end
+
+    sql = "#{select}#{from}#{where}#{order}"
+
+    render(:text => sql)
+
+  end
+
+end
+

@@ -1,0 +1,44 @@
+<fieldset>
+  <div>
+    <label><b>Company:</b></label>
+    <%= f.text_field(:company, :size=>40, :class=>"textfield") %>
+  </div>
+  <div>
+    <label><b>Email:</b></label>
+    <%= f.text_field(:email, :size=>40, :class=>"textfield") %>
+  </div>
+  <div>
+    <label><b>URL:</b>  </label>
+    <%= f.text_field(:url, :size=>40, :class=>"textfield") %><br/>
+    (e.g. http://www.yahoo.com)
+  </div>
+  <div>
+    <label><b>Title:</b></label>
+    <%= f.text_field(:title, :size=>40, :class=>"textfield") %><br/>
+    (e.g. "Web Developer", "Graphic Artist")
+  </div>
+  <div>
+    <label><b>Location:</b> </label>
+    <%= f.text_field(:location, :size=>40, :class=>"textfield") %><br/>
+    (e.g. "Melbourne, Australia", "New York, NY", "London, United Kingdom"  )
+  </div>
+  <div>
+    <label><b>Description:</b></label>
+    <%= f.text_area(:description, :size=>'20x5', :class=>"text-area") %>
+    <br/>
+    1000 characters allowed. No HTML.
+  </div>
+  <div>
+    <label><b>How to apply:</b></label>
+    <%= f.text_area(:to_apply, :size=>'20x3', :class=>"text-area") %>
+  </div>
+  <div>
+    <label><b>Select Categories:</b></label>
+    <% @categories.each do |category| %>
+        <%= check_box_tag('categories[]', category.id) %> <%=category.name %> <br/>
+        <!-- <input type="checkbox" name="categories[]" value="<%= category.id %>" > -->
+    <% end %>
+  </div>
+  <%= image_submit_tag("post_a_job.png", :class => 'postjob-button') %>
+ </fieldset>
+
