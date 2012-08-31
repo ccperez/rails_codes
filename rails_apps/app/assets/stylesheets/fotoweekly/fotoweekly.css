@@ -1,0 +1,507 @@
+/******************************************************************
+  Layout: Photo Weekly
+******************************************************************/
+
+/******************************************************************
+ +Overall Colors and Styles
+******************************************************************/
+
+body {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+
+body, td, th, textarea, input, select, h1, h2, h3, h4, h5, h6 {
+  font-size: 62.7%;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+p, form, h1, h2, h3, h4, h5, h6,  ul, ol {
+  margin: 0px;
+  padding: 0px;
+}
+
+a img {
+  border: none;
+}
+
+
+.clear-fix {
+  clear: both;
+  height:0;
+}
+
+/******************************************************************
+ +Basic Skeleton
+******************************************************************/
+
+#wrapper {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+#header {
+  width: 800px;
+  height: 43px;
+  position: relative;
+}
+
+#main {
+  display: inline;
+  color: #333333;
+  width: 800px;
+  float: left;
+  margin-top: 0px;
+  background: white;
+}
+
+#main-home {
+  margin-top: 345px;
+}
+
+
+#side-bar {
+  width: 350px;
+  float: right;
+}
+
+#footer {
+ width: 800px;
+ background: white;
+ color: #999999;
+ text-align: center;
+ clear: both;
+}
+
+/******************************************************************
+ +Sub Headings
+******************************************************************/
+
+.sub-header-trans{
+  width: 790px;
+  padding: 5px;
+  background:url("bg_sub_heading.png");
+}
+.heading{
+  font-size: 1.6em;
+  font-weight: 300;
+  color: white;
+  width: 380px;
+  text-align: left;
+  display: block;
+}
+
+.right{
+  float: right;
+}
+
+.left{
+  float: left;
+}
+
+
+/******************************************************************
+ +Text colors
+******************************************************************/
+.about {
+  color: #C70570;
+}
+
+.theme {
+  color: #75B801;
+}
+
+.archive {
+  color: #6DABE7;
+}
+
+/******************************************************************
+ +Header
+******************************************************************/
+#header #logo {
+  float: left;
+}
+
+#header  ul
+{
+  margin: 0;
+  padding: 0;
+	padding-top: 10px;
+  list-style-type: none;
+}
+ #header  ul li { display: inline; font-size: 1.4em; margin-left: 10px; }
+#header a
+{
+  font-weight: bold;
+	color: #3C8DDF;
+}
+
+#header a:hover
+{
+	color: #75B801;
+}
+
+/******************************************************************
+ +Main
+******************************************************************/
+
+/* headings */
+#main h1 {
+  color: black;
+  margin-top: 10px;
+	margin-bottom: 10px;
+  font-size: 2.4em;
+  line-height: 100%;
+}
+
+#main h2 {
+  color: #C70570;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 2.2em;
+  line-height: 100%;
+}
+
+#main h2 a{
+  text-decoration: none;
+}
+
+#main h3 {
+  color: black;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 2.0em;
+  line-height: 100%;
+}
+
+#main h4 {
+  color: black;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 1.8em;
+  line-height: 100%;
+}
+
+#main h5 {
+  color: black;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 1.6em;
+  line-height: 100%;
+}
+
+#main h6 {
+  color: black;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 1.4em;
+  line-height: 100%;
+}
+
+#main #blurb {
+  width: 250px;
+  float: left;
+  height: 130px;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+#main #clouds {
+  text-align: center;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+#archive-home {
+  width: 520px;
+  float: left;
+  margin-left: 5px;
+  margin-top: 20px;
+  margin-right: 5px;
+}
+
+#main p {
+  margin-bottom: 5px;
+	font-size: 1.3em;
+}
+
+#main a {
+  color: #3C8DDF;
+}
+
+#main a:hover {
+	color: #C70570;
+}
+
+#large-photo {
+  width: 500px;
+	float: left;
+	margin-top: 10px;
+	padding-bottom: 20px;
+}
+
+#large-photo-info {
+  width: 280px;
+	float: left;
+	margin-left: 10px;
+	margin-top: 40px;
+}
+
+
+.photo{
+  display: block;
+	width: 500px;
+}
+
+.medium-photo-info {
+  width: 180px;
+	float: left;
+	margin-left: 20px;
+	margin-top: 40px;
+}
+
+.medium-photo-wrapper {
+  width: 240px;
+	float: left;
+	margin-left: 10px;
+	margin-top: 40px;
+}
+
+
+.title {
+  display: block;
+	font-size: 1.8em;
+	margin-bottom: 10px;
+}
+
+
+.theme-title {
+  display: block;
+	font-size: 1.8em;
+	margin-top: 10px;
+	color: #C70570;
+}
+
+.created-at {
+	font-size: 1.2em;
+	color: #C70570;
+}
+
+.fullname {
+	font-size: 1.2em;
+	color: #666666;
+}
+
+.fullname a {
+	color: #3C8DDF;
+	text-decoration: none;
+}
+
+
+
+.votes {
+ display: block;
+ margin-top: 5px;
+ font-size: 1.6em;
+ color: #75B801;
+ font-weight: bold;
+ margin-bottom: 10px;
+}
+
+.votes a{
+  text-decoration: none;
+}
+
+.tags {
+  font-size: 1.4em;
+	margin-top: 10px;
+	display: block;
+}
+
+.tags a{
+	text-decoration: underline;
+}
+
+
+
+
+/******************************************************************
+ +Sidebar
+******************************************************************/
+#side-bar ul {
+ margin-top: 10px;
+ font-size: 1.5em;
+ margin-left: 10px;
+ list-style: none;
+}
+
+#side-bar li {
+ margin-top: 10px;
+}
+
+#side-bar .salt {
+  color: black;
+  font-weight: bold;
+}
+
+#side-bar .pepper {
+  color: #75B801;
+  font-weight: bold;
+}
+
+#side-bar a:hover {
+  color: #0099FF;
+}
+
+/******************************************************************
+ +Pics
+******************************************************************/
+
+.medium-pic {
+	border: 1px solid white;
+  float: left;
+	display: block;
+	text-align: center;
+}
+
+a.medium-pic:hover{
+ border: 1px solid #C70570;
+}
+
+.home-pic-link {
+	border: 1px solid white;
+  width: 75px;
+  height: 75px;
+  margin-right: 5px;
+  margin-top: 5px;
+  display: block;
+  float: left;
+	text-align: center;
+	text-decoration: none;
+}
+
+a.home-pic-link:hover{
+ border: 1px solid #C70570;
+}
+
+.more-themes {
+  width: 24px;
+  height: 75px;
+  margin-top: 5px;
+  display: block;
+  float: left;
+}
+
+/******************************************************************
+ +Tag Cloud
+******************************************************************/
+.cloud1 {font-size: 1.0em;}
+.cloud2 {font-size: 1.4em;}
+.cloud3 {font-size: 1.6em;}
+.cloud4 {font-size: 1.8em;}
+.cloud5 {font-size: 2.0em;}
+
+
+
+/******************************************************************
+ + forms
+******************************************************************/
+
+#main form {
+  width: 560px;
+	margin-top: 0;
+	padding-top: 0;
+	font-size: 1.6em;
+}
+
+#main form legend {
+	font-weight: bold;
+	padding: 6px 12px 2px 0px;
+	position: relative;
+	top: -9px;
+	border-bottom: none;
+}
+
+#main form fieldset {
+  border: none;
+	margin-bottom: 5px;
+}
+
+#main form fieldset .textfield {
+	border: 1px solid #FFCC00;
+	width: 300px;
+  padding: 3px;
+}
+
+#main form fieldset .select-field {
+	border: 1px solid #FFCC00;
+  padding: 3px;
+}
+
+#main form fieldset .text-area {
+	border: 1px solid #FFCC00;
+  padding: 3px;
+}
+
+
+
+#main form div{
+  margin-bottom: 10px;
+  .margin-left: 10px; /* ie 7 */
+  _margin-left: 10px; /* ie 6 */
+
+}
+
+#main form label{
+  display: block;
+  margin-bottom: 3px;
+  clear: right;
+  font-size: .8em;
+}
+
+
+#main form textarea{
+  width: 500px;
+}
+
+/******************************************************************
+ +warnings and notice
+******************************************************************/
+.notice {
+  display: block;
+  padding: 5px;
+  color: #769B4E;
+	border: 1px solid #769B4E;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+/* Errors */
+.field_with_errors { }
+.field_with_errors label { color: #AA0000; }
+.field_with_errors input { border: 1px solid #AA0000; }
+#errorExplanation {
+  width: 400px;
+  padding: 0;
+  margin: 0 auto 1.5em;
+  border: 1px solid #AA0000;
+  background-color: #FFFFFF; font-size: 12px;
+}
+#errorExplanation h2 {
+  font-weight: bold; font-size: 12px;
+  padding: 5px 5px 5px 15px; margin: 0; width: 380px;
+  background-color: #AA0000; color: #FFFFFF; }
+#errorExplanation p {
+  color: #333333;
+  margin: 0;
+  padding: 3px 0.5em;
+}
+#errorExplanation ul { margin-top: 0; }
+#errorExplanation ul li { list-style: square; }
+

@@ -1,0 +1,36 @@
+<% @page_title = "job-board" %>
+
+<div id="search-box">
+  <%= form_tag jobolicious_jobs_path, :method => 'get' do %>
+    <fieldset>
+      <legend>Search</legend>
+      <div>
+       <label> (e.g. Designer Sydney, Programmer New York, Interface Design London) </label>
+       <%= text_field_tag(:search, params[:search], :class => 'textfield') %>
+       <select name="category" class="select-field">
+          <option value="">All</option>
+          <% @categories.each do |category|  %>
+            <% selected = category.id == params[:category].to_i ? "selected" : "" %>
+            <option value="<%= category.id %>" <%= selected %>><%= category.name %></option>
+         <% end %>
+       </select>
+       <%= image_submit_tag("jobolicious/go-star.gif", :class => 'postjobbutton') %>
+       </div>
+    </fieldset>
+  <% end %>
+</div>
+<h3 class="job-count"><%= @jobs.size %> <span class="rockstar">rockstar</span> jobs!</h3>
+<% image_link = image_tag('jobolicious/rss-feed.gif', :alt => 'rss feed', :class => 'rss') %>
+<%= link_to(image_link, "jobs.atom") %>
+<div class="clear-fix"></div>
+<div id="jobs">
+  <% @jobs.each do |job| %>
+    <% job_id = encode(job.id.to_s) %>
+    <div class="<%= cycle('job', 'job-alternate') %>">
+      <span class="location"><%= job.location %></span>
+      <%= link_to(job.title, jobolicious_job_path(job_id), :class => 'job-link') %>
+      <span class="at"> at </span><%= job.company %>
+    </div>
+  <% end %>
+</div>
+

@@ -1,0 +1,24 @@
+<div class="photo">
+  <div class="medium-photo-wrapper">
+    <% imgLnk = image_tag("fotoweekly/photos/medium/#{photo(photo)}.jpg", :alt=>photo.title) %>
+    <%= link_to(imgLnk, fotoweekly_photo_path(photo.id), :class=>"medium-pic") %>
+  </div>
+  <div class="medium-photo-info">
+    <span class="title"><%= link_to(photo.title, fotoweekly_photo_path(photo.id)) %>
+    </span>
+    <span class="created-at"><%=format_date(photo.created_at)%></span>
+    <span class="fullname">by <%=photo.fullname%></span>
+    <span class="votes"><b>Votes <%=photo.vote_cache%></b></span>
+    <span class="tags">
+      Tags:
+      <% tags = photo_tags(photo.id) %>
+      <% tags.each do |tag| %>
+        <%= link_to(tag.name, fotoweekly_photo_path("by_tag", :tag=>tag.name)) %>
+      <% end %>
+    </span>
+    <span class="theme-title">theme <%= link_to(photo.theme.name, fotoweekly_theme_path(photo.theme.id)) %></span>
+    <div class="clear-fix"></div>
+  </div>
+  <div class="clear-fix"></div>
+</div>
+

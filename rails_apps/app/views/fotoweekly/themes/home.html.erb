@@ -1,0 +1,15 @@
+<div id="blurb">
+  <p>Each <strong>Monday</strong> a new photo theme is posted.</p>
+  <p>Participants interpret the theme and post their photos on the site. The photos are then <strong>voted on by the public</strong>. </p>
+  <p>It's <strong>Free</strong> and fun to post a photo. Are you up for the challenge? <a href="/photos/new">post photo</a></p>
+</div>
+<div id="archive-home">
+  <% @themes.each do |theme| %>
+    <% imgLnk = image_tag("fotoweekly/photos/small/#{photo(theme.photos[0])}.jpg", :alt=>'archive') %>
+    <%= link_to(imgLnk, fotoweekly_theme_path(theme.id)) %>
+  <% end %>
+  <% imgLnk = image_tag("fotoweekly/more_themes.gif", :alt=>'more themes') %>
+  <%= link_to(imgLnk, '/archives') %>
+</photo>
+</div>
+

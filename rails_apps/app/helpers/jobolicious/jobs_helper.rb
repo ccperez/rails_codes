@@ -1,0 +1,2 @@
+module Jobolicious::JobsHelper
+end

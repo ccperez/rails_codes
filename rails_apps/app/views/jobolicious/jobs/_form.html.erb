@@ -1,0 +1,43 @@
+<fieldset>
+  <div>
+    <b><%= f.label :company %></b>
+    <%= f.text_field(:company, :size=>40, :class=>"textfield") %>
+  </div>
+  <div>
+    <b><%= f.label :email %></b>
+    <%= f.text_field(:email, :size=>40, :class=>"textfield") %>
+  </div>
+  <div>
+    <b><%= f.label :url, "URL" %></b>
+    <%= f.text_field(:url, :size=>40, :class=>"textfield") %><br/>
+    (e.g. http://www.yahoo.com)
+  </div>
+  <div>
+    <b><%= f.label :title %></b>
+    <%= f.text_field(:title, :size=>40, :class=>"textfield") %><br/>
+    (e.g. "Web Developer", "Graphic Artist")
+  </div>
+  <div>
+    <b><%= f.label :location %></b>
+    <%= f.text_field(:location, :size=>40, :class=>"textfield") %><br/>
+    (e.g. "Melbourne, Australia", "New York, NY", "London, United Kingdom"  )
+  </div>
+  <div>
+    <b><%= f.label :description %></b>
+    <%= f.text_area(:description, :size=>'20x5', :class=>"text-area") %>
+    <br/>
+    1000 characters allowed. No HTML.
+  </div>
+  <div>
+    <b><%= f.label :to_appy, "How to apply" %></b>
+    <%= f.text_area(:to_apply, :size=>'20x3', :class=>"text-area") %>
+  </div>
+  <div>
+    <label for="jobolicious_job_categories"><b>Select Categories</b></label>
+    <% @categories.each do |category| %>
+        <%= check_box_tag('categories[]', category.id) %> <%=category.name %> <br/>
+    <% end %>
+  </div>
+  <%= image_submit_tag("jobolicious/post_a_job.png", :class => 'postjob-button') %>
+ </fieldset>
+

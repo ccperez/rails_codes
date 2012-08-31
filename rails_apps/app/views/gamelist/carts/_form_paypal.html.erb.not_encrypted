@@ -1,0 +1,26 @@
+<%= form_tag @paypal['paypal_url'] do %>
+  <input type="hidden" name="cmd"      value="<%= @paypal['cmd'] %>">
+  <input type="hidden" name="upload"   value="<%= @paypal['upload'] %>">
+  <input type="hidden" name="business" value="<%= @paypal['business'] %>">
+
+  <% i = 1 %>
+  <% @cart.items.each do |item| %>
+    <input type="hidden" name="item_name_<%= i %>"   value="<%= item.product.title %>">
+    <input type="hidden" name="item_number_<%= i %>" value="<%= item.product.id %>">
+    <input type="hidden" name="amount_<%= i %>"      value="<%= item.product.price %>">
+    <input type="hidden" name="quantity_<%= i %>"    value="<%= item.quantity %>">
+    <% i += 1 %>
+  <% end %>
+
+  <input type="hidden" name="currency_code" value="<%= @paypal['currency'] %>">
+  <input type="hidden" name="lc"            value="<%= @paypal['lc'] %>">
+  <input type="hidden" name="rm"            value="<%= @paypal['rm'] %>">
+  <input type="hidden" name="shipping_1"    value="<%= @paypal['shipping'] %>">
+
+  <input type="hidden" name="return"        value="<%= gamelist_carts_url %>/thankyou">
+  <input type="hidden" name="cancel_return" value="<%= gamelist_products_url %>">
+  <input type="hidden" name="notify_url"    value="<%= gamelist_products_url %>">
+
+  <%= image_submit_tag("gamelist/paynow.png", :name => "pay now", :value =>"pay", :class => "pay-button") %>
+<% end %>
+

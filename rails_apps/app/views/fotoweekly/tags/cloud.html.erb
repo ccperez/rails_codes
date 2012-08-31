@@ -1,0 +1,9 @@
+<h1>Tag Cloud</h1>
+<p>Bigger words have more photos. Pretty cool yeah% :)</p>
+<% tags = tag_cloud(@tags) %>
+<div id="clouds">
+  <% tags.each do |tag| %>
+      <%= link_to(tag['name'], fotoweekly_photo_path("by_tag", :tag=>tag['name']), :class=>"cloud#{tag['class']}") %>
+  <% end %>
+</div>
+

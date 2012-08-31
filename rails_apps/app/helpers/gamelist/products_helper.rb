@@ -1,0 +1,2 @@
+module Gamelist::ProductsHelper
+end

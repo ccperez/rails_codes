@@ -1,0 +1,25 @@
+conrad@conrad-Lenovo:/var/www/RonR/RonR_ET/rails_apps$ rails generate model Fotoweekly::Db
+      invoke  active_record
+      create    db/migrate/20120707033622_create_fotoweekly_dbs.rb
+      create    app/models/fotoweekly/db.rb
+   identical    app/models/fotoweekly.rb
+      invoke    test_unit
+      create      test/unit/fotoweekly/db_test.rb
+      create      test/fixtures/fotoweekly/dbs.yml
+conrad@conrad-Lenovo:/var/www/RonR/RonR_ET/rails_apps$ rails generate model Gamelist::Db
+      invoke  active_record
+      create    db/migrate/20120707034214_create_gamelist_dbs.rb
+      create    app/models/gamelist/db.rb
+   identical    app/models/gamelist.rb
+      invoke    test_unit
+      create      test/unit/gamelist/db_test.rb
+      create      test/fixtures/gamelist/dbs.yml
+conrad@conrad-Lenovo:/var/www/RonR/RonR_ET/rails_apps$ rails generate model Jobolicious::Db
+      invoke  active_record
+      create    db/migrate/20120707034609_create_jobolicious_dbs.rb
+      create    app/models/jobolicious/db.rb
+   identical    app/models/jobolicious.rb
+      invoke    test_unit
+      create      test/unit/jobolicious/db_test.rb
+      create      test/fixtures/jobolicious/dbs.yml
+

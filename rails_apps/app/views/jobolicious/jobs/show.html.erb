@@ -1,0 +1,14 @@
+<%
+  @image_path = "../images/"
+  @page_title = "job-description"
+%>
+
+<h3><%= @job.title %> @ <%= @job.company %></h3>
+<br/>
+<p><b>Location:</b> <%= @job.location %></p>
+<p><b>URL:</b> <%= @job.url %></p>
+<br/>
+<p><b>Description:</b><br/> <%= @job.description %></p>
+<br/>
+<p><b>To apply:</b><br/> <%= @job.to_apply %></p>
+

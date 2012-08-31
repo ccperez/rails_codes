@@ -1,0 +1,7 @@
+<h1>Theme <span class="theme"><%=@theme.name%></span></h1>
+<p><%=@theme.description%> </p>
+<% @photos.each do |photo| %>
+  <%= render(photo) %>
+<% end %>
+<br /><br />
+

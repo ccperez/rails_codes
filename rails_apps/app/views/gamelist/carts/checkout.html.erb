@@ -1,0 +1,6 @@
+<h2>Check out</h2>
+<% if !@cart.items.empty? %>
+ <%= render("form_cart") %>
+ <%= render("form_paypal") %>
+<% end %>
+

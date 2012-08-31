@@ -1,0 +1,2 @@
+module Gamelist::CartsHelper
+end

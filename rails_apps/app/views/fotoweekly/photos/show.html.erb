@@ -1,0 +1,24 @@
+<div id="large-photo">
+  <h1><%=@photo.title%></h1>
+  <%= image_tag("fotoweekly/photos/large/#{@photo.id}.jpg", :alt=>@photo.title) %>
+  <%#= link_to(imgLnk, "#{base_url(@page_title)}images/photos/original/#{@photo.id}.jpg") %>
+</div>
+
+<div id="large-photo-info">
+  <span class="votes">Votes <%=@photo.vote_cache%> (  <%= link_to("Vote up", fotoweekly_photo_path(@photo.id, :vote=>"1")) %> )</span>
+  <span class="created-at">@ <%=format_date(@photo.created_at)%></span>
+  <span class="fullname">by <%=@photo.fullname%></span>
+  <span class="tags">
+    Tags:
+      <% @tags.each do |tag| %>
+        <%= link_to(tag.name, fotoweekly_photo_path("by_tag", :tag=>tag.name)) %>
+      <% end %>
+  </span>
+  <h2>Theme <%= link_to(@photo.theme.name, fotoweekly_theme_path(@photo.theme.id)) %></h2>
+  <% @photos.each do |photo| %>
+    <% imgLnk = image_tag("fotoweekly/photos/small/#{photo.id}.jpg", :alt=>photo.title) %>
+    <%= link_to(imgLnk, fotoweekly_photo_path(photo.id), :class=>"home-pic-link") %>
+  <% end %>
+  <div class="clear-fix"></div>
+</div>
+

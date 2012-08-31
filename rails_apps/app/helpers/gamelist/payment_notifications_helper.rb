@@ -1,0 +1,2 @@
+module Gamelist::PaymentNotificationsHelper
+end

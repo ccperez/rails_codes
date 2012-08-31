@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>FotoWeekly - <%=@page_title%> </title>
+    <%= stylesheet_link_tag('fotoweekly/fotoweekly', :media => 'all') %>
+    <%= javascript_include_tag('application') %>
+    <!--[if IE 6]>
+          <style type="text/css">
+            .sub-header-trans{
+              background:transparent;
+              height:1%;
+              padding: 5px;
+              width: 800px;
+              filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/assets/fotoweekly/bg_sub_heading.png', sizingMethod='scale');
+            }
+          </style>
+    <![endif]-->
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div id="wrapper">
+
+      <div id="header">
+         <% imgLnk = image_tag("fotoweekly/logo.gif", :alt=>"fotoweekly", :id=>"logo") %>
+         <%= link_to(imgLnk, fotoweekly_themes_path, :id=>"logo") %>
+         <ul>
+           <li><%= link_to("Theme Archive", fotoweekly_themes_path+'/archives', :id => "submit-photo") %></li>
+           <li><%= link_to("Tag Cloud",     fotoweekly_tags_path,      :id => "submit-photo") %></li>
+           <li><%= link_to("Submit Photo",  new_fotoweekly_photo_path, :id => "submit-photo") %></li>
+         </ul>
+      </div>
+
+      <div class="sub-header-trans">
+        <span class="heading">Welcome to <strong>foto</strong>weekly! This Weeks Theme <span class="theme"><%= @wksTheme.name %></span></span>
+        <div class="clear-fix"></div>
+      </div>
+

@@ -1,0 +1,17 @@
+<h1>Theme Archive</h1>
+<p>Browse our themes the newest ones are at the top.</p>
+<% @themes.each do |theme| %>
+  <div class="photo">
+    <div class="medium-photo-wrapper">
+      <% imgLnk = image_tag("fotoweekly/photos/medium/#{photo(theme.photos[0])}.jpg" , :alt=>theme.name) %>
+      <%= link_to(imgLnk, fotoweekly_theme_path(theme.id)) %>
+    </div>
+    <div class="medium-photo-info">
+      <span class="title"><%= link_to(theme.name, fotoweekly_theme_path(theme.id)) %></span>
+      <p><%=theme.description%></p>
+      <div class="clear-fix"></div>
+    </div>
+    <div class="clear-fix"></div>
+  </div>
+<% end %>
+

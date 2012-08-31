@@ -1,0 +1,14 @@
+<div id="sidebar">
+  <div id="cart">
+    <span id="cartprice">
+        <%= pluralize(@cart.total_quantity, "item") %> <br/>
+        <%= number_to_currency(@cart.total_price) %>
+    </span>
+    <div id="checkout">
+      <% image_link = image_tag('gamelist/checkout-btn.png', :alt => 'checkout') %>
+      <%= link_to(image_link, gamelist_carts_path+'/checkout') %>
+    </div>
+  </div>
+  <%= image_tag('gamelist/paypal.png', :alt => "payments by paypal", :id=> "paypal") %>
+</div>
+

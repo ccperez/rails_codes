@@ -1,0 +1,6 @@
+<h1>Submit Photo</h1>
+<p>Hey, Just fill in the form and your photo will be added to this weeks theme! good luck.</p>
+<%= form_for(@photo, :validate => true, :html => {:multipart => true}) do |f| %>
+    <%= render(:partial=>"form", :locals => {:f => f}) %>
+<% end %>
+

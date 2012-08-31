@@ -1,0 +1,15 @@
+<%= render("layouts/jobolicious/header") %>
+  <%= render("layouts/jobolicious/sidebar") %>
+
+  <div id="main">
+    <% if !flash[:notice].blank? %>
+      <div class="notice">
+        <b><%= flash[:notice] %></b>
+      </div>
+      <br />
+    <% end %>
+    <%= yield %>
+  </div>
+
+<%= render("layouts/jobolicious/footer") %>
+

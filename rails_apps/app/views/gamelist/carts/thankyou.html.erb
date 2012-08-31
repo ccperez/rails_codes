@@ -1,0 +1,7 @@
+<% if params %>
+  <%#= debug(params) %>
+  <div id="thankyou">
+    <span class="body-txt"><p>Hey <b><%= params['first_name'] %> <%= params['last_name'] %></b> thank you for your order. Please check your email <b><%= params['payer_email'] %></b> for your receipt :)</span></p>
+  </p>
+<% end %>
+

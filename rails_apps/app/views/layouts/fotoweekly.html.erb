@@ -1,0 +1,7 @@
+<%= render("layouts/fotoweekly/header") %>
+
+<% page = (@page_title == "home") ? "home" : "photo" %>
+<%= render("layouts/fotoweekly/#{page}")%>
+
+<%= render("layouts/fotoweekly/footer") %>
+
