@@ -1,0 +1,15 @@
+<%= render(
+      :partial => "shared/manage",
+      :locals => {
+          :form_name    => "admin_user",
+          :form_object  => @admin_user,
+          :link_object  => nil,
+          :object_count => nil,
+          :selected     => '',
+          :back_link    => {:action => 'index'},
+          :new_action   => {:action => 'manage', :event => 'new'},
+          :event_action => {:action => 'manage', :id => @admin_user.id, :event => params[:event]}
+      }
+    )
+%>
+

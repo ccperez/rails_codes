@@ -1,0 +1,15 @@
+<%= render(
+      :partial => "shared/manage",
+      :locals  => {
+          :form_name    => "page",
+          :form_object  => @page,
+          :link_object  => @subjects,
+          :object_count => @page_count,
+          :selected     => params[:id].blank? ? @page_count : @page.position,
+          :back_link    => {:action => 'index',  :subject_id => params[:subject_id]},
+          :new_action   => {:action => 'manage', :subject_id => @subject.id, :event => 'new'},
+          :event_action => {:action => 'manage', :id => @page.id, :subject_id => @subject.id, :event => params[:event]}
+       }
+    )
+%>
+

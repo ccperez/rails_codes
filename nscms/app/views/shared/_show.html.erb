@@ -1,0 +1,16 @@
+<% page = form_name.split("_").map {|word| word.capitalize}.join(" ") %>
+<% @page_title = "Show #{page}" %>
+
+<% not_included_field = %w(id created_at updated_at salt hashed_password) %>
+
+<div <%= "class='#{form_name} show'" %>>
+  <h2><%= @page_title %></h2>
+  <table <%= "summary='#{form_name.capitalize} detail View'" %>>
+  <% @fields.each do |t| %>
+    <% if !not_included_field.include?(t.Field) %>
+      <tr><th class="right"><%= t.Field.capitalize %> :</th><td><%= object[t.Field] %></td></tr>
+    <% end %>
+  <% end %>
+  </table>
+</div>
+

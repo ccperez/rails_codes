@@ -1,0 +1,46 @@
+<%= link_to('<< Back to List', back_link, :class => 'back-link' ) %>
+
+<% if params[:event] == "show" %>
+    <%= render(
+          :partial => "shared/show",
+          :locals => {
+              :form_name => form_name,
+              :object    => form_object
+          }
+        )
+    %>
+<% else %>
+    <% @page_title = (params[:event]=="new") ? "Create " : ((params[:event]=="edit") ? "Update " : "Delete ") %>
+
+    <div <%= "class='#{form_name} #{params[:event]}'"%>>
+      <h2><%= @page_title += form_name.split("_").map {|word| word.capitalize}.join(" ") %></h2>
+      <% form_action = (params[:event]=="new") ? new_action : event_action %>
+      <%= form_for(form_name, :url => form_action) do |f| %>
+          <% if params[:event] == "delete" %>
+              <%= render(
+                    :partial => "shared/delete",
+                    :locals  => {
+                        :form_name => form_name,
+                        :object    => form_object,
+                        :button    => @page_title
+                    }
+                  )
+              %>
+          <% else %>
+              <%= render(
+                    :partial => "shared/form",
+                    :locals  => {
+                        :f        => f,
+                        :button   => @page_title,
+                        :object   => form_object,
+                        :link     => link_object,
+                        :count    => object_count,
+                        :selected => selected
+                    }
+                  )
+              %>
+          <% end %>
+      <% end %>
+    </div>
+<% end %>
+

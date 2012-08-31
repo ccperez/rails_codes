@@ -1,0 +1,62 @@
+<div class="<%= '#{page} list' %>">
+
+  <% page_title = page.split(" ").map {|word| word.capitalize}.join(" ") %>
+
+  <h2><%= "#{page_title} List" %></h2>
+
+  <%= link_to("Add New #{page_title}", new_link, :class => 'action new') %>
+
+  <%= pluralize(objects.size, page_title) %>
+  <table class="listing" summary="<%= '#{page} list' %>">
+    <tr class="header">
+      <% if !page == "admin" %>
+          <th>&nbsp;</th>
+      <% end %>
+      <% for tHdr in @tHdr %>
+          <th><%= tHdr %></td>
+      <% end %>
+      <th>Actions</th>
+    </tr>
+    <% objects.each do |object| %>
+      <tr class="<%= cycle('odd', 'even') %>">
+         <% for field in @fields %>
+            <% if field == "visible" %>
+                <td class="center"><%= status_tag(object[field]) %></td>
+            <% elsif field == "email" %>
+                <td><%= mail_to(object[field]) %></td>
+            <% elsif field == "full_name" %>
+                <td><%= object.full_name %></td>
+            <% else %>
+                <td><%= object[field] %></td>
+            <% end %>
+        <% end %>
+        <% if ["subject", "page", "section"].include?(page) %>
+          <td class="center">
+              <%= object.pages.size    if page == "subject" %>
+              <%= object.sections.size if page == "page" %>
+              <%= object.content_type  if page == "section" %>
+          </td>
+        <% end %>
+        <td class="actions">
+          <% if page == "page" %>
+              <%= link_to("View Sections", {:controller => 'sections', :page_id => object.id}, :class => 'action show') %>
+              <%= link_to("Show",   {:action => 'manage', :event => 'show',   :id => object.id, :subject_id => @subject.id}, :class => 'action show') %>
+              <%= link_to("Edit",   {:action => 'manage', :event => 'edit',   :id => object.id, :subject_id => @subject.id}, :class => 'action edit') %>
+              <%= link_to("Delete", {:action => 'manage', :event => 'delete', :id => object.id, :subject_id => @subject.id}, :class => 'action delete') %>
+          <% elsif page == "section" %>
+              <%= link_to("Show",   {:action => 'manage', :event => 'show',   :id => object.id, :page_id => @page.id}, :class => 'action show') %>
+              <%= link_to("Edit",   {:action => 'manage', :event => 'edit',   :id => object.id, :page_id => @page.id}, :class => 'action edit') %>
+              <%= link_to("Delete", {:action => 'manage', :event => 'delete', :id => object.id, :page_id => @page.id}, :class => 'action delete') %>
+          <% else %>
+              <%= link_to("View Pages", {:controller => 'pages', :subject_id => object.id}, :class => 'action show') if page == "subject" %>
+
+              <%= link_to("Show",   {:action => 'manage', :event => 'show',   :id => object.id}, :class => 'action show') %>
+              <%= link_to("Edit",   {:action => 'manage', :event => 'edit',   :id => object.id}, :class => 'action edit') %>
+              <%= link_to("Delete", {:action => 'manage', :event => 'delete', :id => object.id}, :class => 'action delete') %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+

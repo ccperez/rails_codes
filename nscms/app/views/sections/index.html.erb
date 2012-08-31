@@ -1,0 +1,15 @@
+<% @page_title = "Section List" %>
+
+<%= link_to("<< Back to Page List", {:controller => 'pages', :subject_id => @page.subject_id}, :class => 'back-link') %>
+
+<%=
+  render(
+    :partial => "shared/list",
+    :locals  => {
+      :objects => @sections,
+      :page    => 'section',
+      :new_link  => {:action => 'manage', :page_id => @page.id, :event => 'new'}
+    }
+  )
+%>
+

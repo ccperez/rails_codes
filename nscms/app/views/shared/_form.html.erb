@@ -1,0 +1,41 @@
+<% not_included_field = %w(id created_at updated_at salt encrypted_password) %>
+
+<%#= error_messages_for(object) %>
+
+<table summary="form fields">
+  <% @fields.each do |t| %>
+    <% if !not_included_field.include?(t.Field) %>
+      <tr>
+        <th><%= f.label(t.Field) %></th>
+        <td>
+        <% if ( t.Type.to_s =~ /tiny(.*)/ ) %>
+            <%= f.check_box(t.Field) %>
+        <% elsif ( t.Type.to_s =~ /text(.*)/ ) %>
+            <%= f.text_area(t.Field, :size=>'40x10') %>
+        <% else %>
+            <% if t.Field  == "content_type" %>
+                <%= f.radio_button(t.Field, 'text') %> Text
+                <%= f.radio_button(t.Field, 'HTML') %> HTML
+            <% elsif t.Field == "position" %>
+                <%= f.select(t.Field, 1..count, :selected => selected) %>
+            <% elsif t.Field =~ /(.*)_id/ %>
+                <%= f.select(t.Field, link.collect{|s| [s.name, s.id]}) %>
+            <% else %>
+                <%= f.text_field(t.Field) %>
+            <% end %>
+        <% end %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+  <%if @page_title =~ /(.*)Admin/ %>
+    <tr>
+      <th><%= f.label(:password) %></th>
+      <td><%= f.password_field(:password) %></td>
+    </tr>
+  <% end %>
+</table>
+<div class="form-buttons">
+  <%= submit_tag(button) %>
+</div>
+
