@@ -1,0 +1,38 @@
+<%= error_messages_for(@photo) %>
+
+<input name="photo[theme_id]" type="hidden" value="<%=@wksTheme.id%>" />
+<fieldset>
+  <div>
+    <b><%= f.label(:title, "Photo Title") %></b>
+    <%= f.text_field(:title, :size=>40, :class=>"textfield") %>
+    <label></label>
+  </div>
+  <div>
+    <b><%= f.label(:fullname) %></b>
+    <%= f.text_field(:fullname, :size=>40, :class=>"textfield") %>
+  </div>
+  <div>
+    <b><%= f.label(:discuss_url, "Disscusion URL:") %></b>
+    <%= f.text_field(:discuss_url, :size=>40, :class=>"textfield") %><br>
+    (e.g. link to your blog or flickr so people can disscuss your photo)
+  </div>
+  <div>
+    <b><%= f.label(:email) %></b>
+    <%= f.text_field(:email, :size=>40, :class=>"textfield") %><br />
+    (e.g. Just in case we have to contact you)
+  </div>
+  <div>
+    <b><%= f.label(:image, 'Attach Image') %></b>
+    <b><%= f.file_field(:image) %></b><br/>
+    (e.g. jpg files and not bigger than 1MB )
+  </div>
+  <div>
+    <b><%= label_tag('Tags') %></b>
+    <%= text_field_tag('tags', '', :max_length=>100, :size=>40, :class=>"textfield") %><br />
+    (e.g. City, New York, Car, Night)
+  </div>
+  <div>
+    <%= submit_tag("post photo")%>
+  </div>
+</fieldset>
+

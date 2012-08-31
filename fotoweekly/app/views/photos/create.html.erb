@@ -1,0 +1,6 @@
+<% if !flash[:notice].blank? %>
+  <p>Thank you for submitting your photo.</p>
+  <% imgLnk = image_tag("photos/medium/#{@photo.id}.jpg", :alt=>"Your Photo") %>
+  <%= link_to(imgLnk, photo_path(@photo.id)) %>
+<% end %>
+

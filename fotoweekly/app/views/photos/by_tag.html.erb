@@ -1,0 +1,7 @@
+<h1>Tag <span class="theme"><%=params[:tag]%></span></h1>
+<p>Displays photos by tag</p>
+<% @photos.each do |photo| %>
+  <%= render(photo) %>
+<% end %>
+<br /><br />
+

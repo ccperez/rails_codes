@@ -1,0 +1,7 @@
+app/views/themes/home.html.erb:10:    <%= link_to(imgLnk, :controller=>'photos', :action=>'theme', :id=>theme.id) %>
+app/views/themes/home.html.erb:13:  <%= link_to(imgLnk, :controller=>'themes', :action=>'archives') %>
+app/views/themes/archives.html.erb:8:      <%= link_to(imgLnk, :controller=>'photos', :action=>'theme', :id=>theme.id) %>
+app/views/themes/archives.html.erb:11:      <span class="title"><%= link_to(theme.name, :controller=>'photos', :action=>'theme', :id=>theme.id) %></span>
+app/views/layouts/_header.html.erb:27:           <li><%= link_to("Theme Archive", {:controller=>"themes", :action=>"archives"}, :id=>"submit-photo") %></li>
+app/views/photos/show.html.erb:17:  <h2>Theme <%= link_to(@photo.theme.name, :controller=>'photos', :action=>'theme', :id=>@photo.theme.id) %></h2>
+app/views/photos/_photo.html.erb:19:    <span class="theme-title">theme <%= link_to(photo.theme.name, :controller=>"photos", :action=>"theme", :id=>photo.theme.id) %></span>
