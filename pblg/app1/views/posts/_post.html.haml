@@ -1,0 +1,4 @@
+#post
+  %h2= link_to_unless_current(post.title, {:action => 'manage', :id => post})
+  = simple_format(post.body)
+

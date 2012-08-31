@@ -1,0 +1,7 @@
+= div_for comment do
+  %strong
+    #{comment.title}:
+    %em
+      Posted on #{comment.created_at.strftime('%b %d, %Y at %I:%M %p')}
+  = simple_format comment.body
+

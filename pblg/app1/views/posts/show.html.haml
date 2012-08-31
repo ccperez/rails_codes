@@ -1,0 +1,12 @@
+= render(@post)
+%p
+  = link_to('Edit', {:action => 'manage', :id => @post})
+  |
+  \#{link_to('Destroy', @post, :method => :delete, :confirm => "Are you sure want to delete this record?")}
+  \#{link_to('See All Posts', posts_path)}
+- unless @post.comments.empty?
+  %h2= pluralize(@post.comments.size, 'comment')
+  #comments
+    = render(@post.comments)
+= render(:partial => 'comments/form')
+
