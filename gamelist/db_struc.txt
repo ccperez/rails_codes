@@ -1,0 +1,23 @@
+Payment_Notifications
+ - Customers
+ - Orders
+ - Items  - Productions
+
+Payment_Notifications
+ - id
+
+Orders
+ - id
+ - pn_id
+ - cust_id
+
+Customers
+ - id
+
+Items
+ - Order_id
+ - prod_id
+
+ products
+  - id
+

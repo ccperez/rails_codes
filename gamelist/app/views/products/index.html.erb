@@ -1,0 +1,16 @@
+<% @products.each do |product| %>
+  <div class="game">
+    <span class="game-pack">
+      <%= image_tag(product.image , :alt => product.title) %>
+      <% imgLnk = image_tag("buyme.png" , :alt=>"buy me", :class => "buyme") %>
+      <%= link_to(imgLnk, :controller => 'carts', :action => 'add', :id => product.id) %>
+    </span>
+    <span class="xbox-title">
+      <%= product.title %> - <%= number_to_currency(product.price, :precision => 3) %>
+    </span>
+    <span class="game-txt">
+      <%= product.body %>
+    </span>
+  </div>
+<% end %>
+

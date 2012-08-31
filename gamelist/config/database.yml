@@ -1,0 +1,10 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: gamelist_devt
+  pool: 5
+  username: gld_usr
+  password: gld_pswd
+  socket: /var/run/mysqld/mysqld.sock
+

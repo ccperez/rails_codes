@@ -1,0 +1,86 @@
+Note:
+- payment_notifications/customers delete (orders, items will auto delete)
+- orders delete (payment_notifications, customers, items will auto delete)
+
+ALTER TABLE orders
+  ADD CONSTRAINT orders_paymentNotificationID FOREIGN KEY (payment_notification_id)
+  REFERENCES payment_notifications (id)
+  ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE orders
+  ADD CONSTRAINT orders_customerID FOREIGN KEY (customer_id)
+  REFERENCES customers (id)
+  ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE items
+  ADD CONSTRAINT items_orderID FOREIGN KEY (order_id)
+  REFERENCES orders (id)
+  ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE items
+  ADD CONSTRAINT items_productID FOREIGN KEY (product_id)
+  REFERENCES products (id)
+  ON DELETE CASCADE ON UPDATE CASCADE;
+
+ALTER TABLE orders
+  DROP FOREIGN KEY orders_paymentNotificationID;
+
+ALTER TABLE orders
+  DROP FOREIGN KEY orders_customerID;
+
+delimiter $$
+  drop trigger if exists orderDelete_trigger $$
+  create trigger orderDelete_trigger
+  after delete on orders
+  for each row
+  begin
+    delete from payment_notifications where id = old.payment_notification_id;
+    delete from customers where id = old.customer_id;
+  end;
+$$
+delimiter ;
+
+delimiter $$
+  drop trigger if exists orderDelete_trigger $$
+  create trigger orderDelete_trigger
+  after delete on orders
+  for each row
+  begin
+    declare fndPN int;
+    declare fndCust int;
+
+    select count(1) into fndPN from payment_notifications
+    where id = old.payment_notification_id;
+    if fndPN = 1 then
+      delete from payment_notifications where id = old.payment_notification_id;
+    end if;
+
+    select count(1) into fndCust from customers
+    where id = old.customer_id;
+    if fndCust = 1 then
+      delete from customers where id = old.customer_id;
+    end if;
+  end;
+$$
+delimiter ;
+
+
+http://www.rustyrazorblade.com/2006/09/mysql-triggers-tutorial/
+http://www.sitepoint.com/how-to-create-mysql-triggers/
+
+* for reference:
+def self.payment_amount_correct(params)
+  amount = 0.00
+  (1..params[:num_cart_items].to_i).each do |i|
+    product = Product.find(params["item_number#{i}"])
+    amount += product.price * params["quantity#{i}"].to_i if product
+  end
+  # amount+APP_CONFIG[:shipping]==params[:mc_gross] ? true : false
+
+  payment = "%.2f" % (amount+APP_CONFIG[:shipping]).to_s
+  return {
+    :amount   => payment,
+    :mc_gross => params[:mc_gross]
+  }
+end
+

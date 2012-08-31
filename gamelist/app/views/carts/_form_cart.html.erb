@@ -1,0 +1,46 @@
+<form action="/carts/update" method="post">
+  <div id="items-box"  >
+    <table id="items" summary="Full view of your basket including update options.">
+      <thead>
+        <tr>
+          <th width="03%" align="right">&nbsp;</th>
+          <th width="27%" align="left">Item</th>
+          <th width="20%" align="right">Item Price</th>
+          <th width="15%" align="right">Qty&nbsp;&nbsp;</th>
+          <th width="20%" align="right">&nbsp;</th>
+          <th width="15%" align="right">Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @cart.items.each do |item| %>
+          <tr>
+            <td><%= link_to("x", :action => 'remove_from_cart', :id => item.product.id) %></td>
+            <td><%= item.product.title %></td>
+            <td align="right"><%= number_to_currency(item.product.price) %></td>
+            <td align="right"><input type="text" size="2" name="cart[<%= item.product.id %>]" maxlength="2" value="<%= item.quantity %>" class="qty" /></td>
+            <td align="right">&nbsp;</td>
+            <td align="right"><%= number_to_currency(item.product.price * item.quantity) %></td>
+          </tr>
+        <% end %>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td align="right"><%= image_submit_tag("update.png", :name => "update", :value =>"update") %></td>
+          <td align="right">
+            <b>Subtotal:</b><br />
+            <b>Shipping:</b><br />
+            <b>Grand Total:</b>
+          </td>
+          <td align="right">
+            <%= number_to_currency(@cart.total_price) %><br />
+            <%= number_to_currency(@paypal['shipping']) %><br />
+            <%= number_to_currency(@cart.total_price + @paypal['shipping']) %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p></p>
+</form>
+

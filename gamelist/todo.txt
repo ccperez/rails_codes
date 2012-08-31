@@ -1,0 +1,5 @@
+1.) create cascading
+2.) check the dependency destroy in each models
+3.) Check if a Table Exists Before Deleting a Record
+http://dba.stackexchange.com/questions/6634/need-to-check-if-a-table-exists-before-deleting-a-record
+

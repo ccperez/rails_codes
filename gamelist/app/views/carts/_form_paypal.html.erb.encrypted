@@ -1,0 +1,6 @@
+<% form_tag @paypal['paypal_url'] do %>
+  <%= hidden_field_tag :cmd, "_s-xclick" %>
+  <%= hidden_field_tag :encrypted, @cart.paypal_encrypted(products_path, payment_notifications_url(:secret => @paypal['secret']), products_path) %>
+  <%= image_submit_tag("paynow.png", :name => "pay now", :value =>"pay", :class => "pay-button") %>
+<% end %>
+
