@@ -1,0 +1,67 @@
+$main-color: #fff
+$href-color: #000
+$main-font: verdana, arial, helvetica, sans-serif
+$main-size: 13px
+$main-line-height: 18px
+
+@mixin margin-color($margin, $color)
+  margin-bottom: $margin
+  background-color: $color
+
+body
+  background-color: $main-color
+  color: #333
+  font:
+    family: $main-font
+    size: $main-size
+  line-height: $main-line-height
+
+p, ol, ul, td
+  font:
+    family: $main-font
+    size: $main-size
+  line-height: $main-line-height
+
+pre
+  background-color: #eee
+  padding: 10px
+  font-size: $main-size - 2px
+
+a
+  color: $href-color
+  &:visited
+    color: #666
+  &:hover
+    color: $main-color
+    background-color: $href-color
+
+div
+  &.field, &.actions
+    margin-bottom: 10px
+
+#notice
+  color: green
+
+.field_with_errors
+  display: inline
+
+
+#error_explanation
+  width: 450px
+  border: 2px solid red
+  padding: 7px
+  padding-bottom: 0
+  @include margin-color(20px, #f0f0f0)
+  h2
+    text-align: left
+    font:
+      weight: bold
+      size: 12px
+    padding: 5px 5px 5px 15px
+    margin: -7px
+    @include margin-color(0px, #c00)
+    color: $main-color
+  ul li
+    font-size: $main-size - 1px
+    list-style: square
+

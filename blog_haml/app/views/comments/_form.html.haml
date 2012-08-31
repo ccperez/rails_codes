@@ -1,0 +1,16 @@
+= form_for(@comment, :validate => true) do |f|
+  = f.hidden_field :post_id
+  %p
+    = f.label :title
+    %br/
+    = f.text_field :title
+    %br/
+    = f.label :email
+    %br/
+    = f.text_field :email
+    %br/
+    = f.label :body, "Comment"
+    %br/
+    = f.text_area :body, :size => '38x10'
+  %p= f.submit "Add Comment"
+

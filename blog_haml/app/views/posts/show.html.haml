@@ -1,0 +1,14 @@
+#post{"data-id" => @post.id}
+  = render(:partial => @post)
+  %p
+    = link_to('Edit', edit_post_path(@post))
+    |
+    \#{link_to('Destroy', delete_post_path(@post))}   |
+    \#{link_to('See All Posts', posts_path)}
+  - unless @post.comments.empty?
+    %h2= pluralize(@post.comments.size, 'comment')
+    #comments
+      = render :partial => @post.comments
+  %h3 Add your comment:
+  = render(:partial => 'comments/form')
+

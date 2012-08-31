@@ -1,0 +1,6 @@
+.comment{"data-time" => comment.created_at.to_i}
+  %strong Posted
+  %em
+    #{comment.created_at.strftime('%b %d, %Y at %I:%M %p')}
+  = simple_format comment.body
+

@@ -1,0 +1,3 @@
+$("#post").html("#{escape_javascript(render(@post))}");
+document.title = "#{escape_javascript("#{params[:search].to_s.titleize} post by Page #{params[:page] || 1}")}";
+

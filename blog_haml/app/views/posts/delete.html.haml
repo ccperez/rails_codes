@@ -1,0 +1,6 @@
+= form_for(@post, :html => {:method => :delete}) do |f|
+  %h2 Are you sure you want to delete the post #{@post.title}?
+  %p
+    = submit_tag("Delete")
+    = link_to('Back', post_path(@post))
+
